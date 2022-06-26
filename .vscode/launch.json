@@ -19,7 +19,7 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Blink light",
+            "name": "Buttons and Lights",
             "file": "c:\\Users\\Bart\\Documents\\github\\bzzrbox\\midi_examples\\html\\3_buttonsAndLights.html"
         }
     ]

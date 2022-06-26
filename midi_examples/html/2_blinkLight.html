@@ -11,7 +11,6 @@
 
     <script type="module">
 
-        // Enable WebMidi.js and trigger the onEnabled() function when ready.
         WebMidi
             .enable()
             .then(onEnabled)
@@ -21,11 +20,11 @@
             if (WebMidi.outputs.length < 1) {
                 document.body.innerHTML += "No output device detected.";
             } else {
-                document.body.innerHTML += `Available output devices: <br/><br/>`;
+                document.body.innerHTML += `Available output devices: <br/>`;
                 WebMidi.outputs.forEach((device, index) => {
                     document.body.innerHTML += `${index}: ${device.name} <br/>`;
                 });
-                document.body.innerHTML += `<br/>Connect  a 3way-box to output 1-3 on the back of bbzrbx.`;
+                document.body.innerHTML += `<br/>Connect a 3way-box to output 1-3 on the back of bbzrbx.`;
                 document.body.innerHTML += `<br/>Select channel 1 in the rotary switch in the top right corner of bzzrbx.`;
                 document.body.innerHTML += `<br/>Connect to the bzzrbx in RTP-MIDI.<br/>`;
                 document.body.innerHTML += `<br/>Do you see lights 1 and 3 blink?`;
