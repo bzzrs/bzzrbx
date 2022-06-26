@@ -27,6 +27,18 @@
             "request": "launch",
             "name": "test",
             "file": "c:\\Users\\Bart\\Documents\\github\\bzzrbox\\midi_examples\\html\\4_test.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Teams Multiple Choice",
+            "file": "c:\\Users\\Bart\\Documents\\github\\bzzrbox\\midi_examples\\html\\5_teamsMultipleChoice.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Teams Quickest",
+            "file": "c:\\Users\\Bart\\Documents\\github\\bzzrbox\\midi_examples\\html\\6_teamsTheQuickest.html"
         }
     ]
 }
