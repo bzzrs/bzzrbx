@@ -47,9 +47,11 @@
             // listen to 'noteOn' & 'noteOff' events from all channels
             bzzrbxIn.addListener("noteon", e => {
                 bzzrbxOut.playNote(e.note.number)
+                document.body.innerHTML += `NoteOn : ${e.message.channel} ${e.note.number} <br/>`;
             });
             bzzrbxIn.addListener("noteoff", e => {
                 bzzrbxOut.stopNote(e.note.number)
+                document.body.innerHTML += `NoteOff : ${e.message.channel} ${e.note.number} <br/>`;
             });
 
         }
