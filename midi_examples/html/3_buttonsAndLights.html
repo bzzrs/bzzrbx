@@ -39,10 +39,10 @@
             document.body.innerHTML += `<br/>Connect to the bzzrbx in RTP-MIDI.<br/>`;
             document.body.innerHTML += `<br/>Now press and release buttons. Do you see their light go on and off?<br/>`;
 
-            // Pick the first available input MIDI device
+            // Pick the first available input/ouput MIDI device
             const bzzrbxIn = WebMidi.getInputByName("Controller")
             const bzzrbxOut = WebMidi.getOutputByName("Controller")
-            bzzrbxOut.sendAllSoundOff();
+            bzzrbxOut.sendAllSoundOff(); // turns all lights off
 
             // listen to 'noteOn' & 'noteOff' events from all channels
             bzzrbxIn.addListener("noteon", e => {
