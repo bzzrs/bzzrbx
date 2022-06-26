@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>bbzrbx simple demo</title>
 
-    <button type="button" onclick='onStartListening()'>Start</button>
+    <button type="button" id="startBtn" onclick='onStartListening(this)'>Start</button>
 
     <script src="https://cdn.jsdelivr.net/npm/webmidi@next/dist/iife/webmidi.iife.js"></script>
 
@@ -67,7 +67,10 @@
                     var index = team.buttons.indexOf(e.note.number)
                     if (index >= 0) {
                         document.body.innerHTML += "Quickest Team:" + team.name + "<br/>"
-                        bzzrbxOut.stopNote([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]); // turn off lights
+                        teams.forEach(t => { // turn the lights out on the losing side, winner stays on
+                            if (t.name != team.name) bzzrbxOut.stopNote(t.buttons)
+                        })
+                        document.getElementById("startBtn").disabled = false
                         _listening = false;
                         break
                     }
@@ -75,7 +78,8 @@
             })
         }
 
-        function onStartListening() {
+        function onStartListening(el) {
+            el.disabled = true
             teams.forEach(team => {
                 bzzrbxOut.playNote(team.buttons);
             })
