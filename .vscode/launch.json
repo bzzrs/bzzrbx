@@ -3,12 +3,24 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [
+    "configurations": [   
         {
-            "type": "pwa-chrome",
+            "type": "msedge",
             "request": "launch",
-            "name": "Open lesson1.html",
-            "file": "c:\\Users\\Bart\\Documents\\github\\bzzrbox\\midi_examples\\html\\lesson1.html"
+            "name": "Listen",
+            "file": "c:\\Users\\Bart\\Documents\\github\\bzzrbox\\midi_examples\\html\\1_listenToButtons.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Blink light",
+            "file": "c:\\Users\\Bart\\Documents\\github\\bzzrbox\\midi_examples\\html\\2_blinkLight.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Blink light",
+            "file": "c:\\Users\\Bart\\Documents\\github\\bzzrbox\\midi_examples\\html\\3_buttonsAndLights.html"
         }
     ]
 }

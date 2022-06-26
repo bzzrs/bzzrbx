@@ -19,15 +19,22 @@
 
         function onEnabled() {
             if (WebMidi.inputs.length < 1) {
-                document.body.innerHTML += "No device detected.";
+                document.body.innerHTML += "No input device detected.";
             } else {
+                document.body.innerHTML += `Available input devices:<br/>`;
                 WebMidi.inputs.forEach((device, index) => {
-                    document.body.innerHTML += `${index}: ${device.name} <br>`;
+                    document.body.innerHTML += `${index}: ${device.name} <br/><br/>`;
                 });
-            }
+                document.body.innerHTML += `<br/>Select channel 1 in the rotary switch in the top right corner of bzzrbx.`;
+                document.body.innerHTML += `<br/>Connect to the bzzrbx in RTP-MIDI.<br/>`;
+                document.body.innerHTML += `<br/>Now press the button on the top right corner of bzzrbx<br/><br/>`;
+           }
+
+            // Pick the first available input MIDI device
             const bzzrbx = WebMidi.inputs[0];
             // const mySynth = WebMidi.getInputByName("TYPE NAME HERE!")
 
+            // listen to 'noteOn' & 'noteOff' events from all channels
             bzzrbx.addListener("noteon", e => {
                 document.body.innerHTML += `NoteOn : ${e.message.channel} ${e.note.number} <br/>`;
             });
@@ -39,7 +46,8 @@
 </head>
 
 <body>
-    <h1>bbzrbx simple demo (using WebMidi.js)</h1>
+    <h1>bbzrbx: Listen to buttons (using WebMidi.js)</h1>
+    <h2></h2>
 </body>
 
 </html>

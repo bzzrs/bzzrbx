@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>bbzrbx simple demo</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/webmidi@next/dist/iife/webmidi.iife.js"></script>
+
+    <script type="module">
+
+        // Enable WebMidi.js and trigger the onEnabled() function when ready.
+        WebMidi
+            .enable()
+            .then(onEnabled)
+            .catch(err => alert(err));
+
+        function onEnabled() {
+            if (WebMidi.outputs.length < 1) {
+                document.body.innerHTML += "No output device detected.";
+            } else {
+                document.body.innerHTML += `Available output devices: <br/><br/>`;
+                WebMidi.outputs.forEach((device, index) => {
+                    document.body.innerHTML += `${index}: ${device.name} <br/>`;
+                });
+            }
+
+            // Pick the first available input MIDI device
+            const bzzrbx = WebMidi.outputs[0];
+            // const bzzrbx = WebMidi.getInputByName("TYPE NAME HERE!")
+            bzzrbx.sendAllSoundOff();
+            let channel = bzzrbx.channels[1];
+
+            // Will execute myCallback every 1 seconds 
+            var intervalID = window.setInterval(turnLightOnOff, 1000);
+
+            function turnLightOnOff() {
+                // play note 1 and 3 for half a second 
+                channel.playNote([1, 3], { duration: 500 });
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>bbzrbx: blink lights every half a second (using WebMidi.js)</h1>
+</body>
+
+</html>
