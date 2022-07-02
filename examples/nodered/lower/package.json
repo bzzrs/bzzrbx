@@ -1,0 +1,14 @@
+{
+    "name": "@bbzr/node-red-bzzr",
+    "version": "0.0.1",
+    "description": "A bzzr node for node-red",
+    "dependencies": {},
+    "keywords": [
+        "node-red"
+    ],
+    "node-red": {
+        "nodes": {
+            "sample": "sample/bzzr.js"
+        }
+    }
+}
